@@ -17,8 +17,9 @@
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full blur-[120px] bg-brand-red/15 pointer-events-none"></div>
 
     <div class="relative z-10 flex w-full max-w-7xl mx-auto flex-col items-center px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-brand-gold text-xs tracking-[0.45em] uppercase font-semibold mb-6 reveal">The B-FIT Commitment</p>
-
+<p class="text-brand-red text-[16px] tracking-[0.45em] uppercase font-semibold mb-6 reveal">
+  The B-FIT Commitment
+</p>
       <h2 class="font-display text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-none mb-8 reveal" style="letter-spacing:0.03em;">
         TRAIN HARD.<br />
         <span class="text-brand-red">WEAR B-FIT.</span><br />
