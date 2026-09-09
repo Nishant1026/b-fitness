@@ -1,0 +1,58 @@
+export const testimonials = [
+    {
+        id: 1,
+        name: 'Arjun Sharma',
+        location: 'Mumbai',
+        rating: 5,
+        text: 'The quality of B-FIT gear is absolutely on another level. The Pro Performance T-Shirt has been through 3 months of intense daily training and still looks and feels brand new. Genuinely premium.',
+        product: 'B-FIT Pro Performance T-Shirt',
+        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80',
+    },
+    {
+        id: 2,
+        name: 'Priya Nair',
+        location: 'Bangalore',
+        rating: 5,
+        text: 'Finally a fitness brand that gets women\'s training wear right. The High-Rise Track Pant is incredibly comfortable, looks incredible, and the fabric quality is exceptional. Ordering more.',
+        product: 'B-FIT Women High-Rise Track Pant',
+        avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b6e2?w=100&q=80',
+    },
+    {
+        id: 3,
+        name: 'Rahul Verma',
+        location: 'Delhi',
+        rating: 5,
+        text: 'The wrist wraps and lifting belt are built like professional equipment. After switching to B-FIT accessories, my heavy lifts have gone to a completely new level. The support is outstanding.',
+        product: 'B-FIT Power Lifting Belt',
+        avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80',
+    },
+    {
+        id: 4,
+        name: 'Sneha Kulkarni',
+        location: 'Pune',
+        rating: 5,
+        text: 'The Elite Track Suit is exactly what I was looking for. Premium fabric, perfect fit, and it looks incredibly sharp. No more settling for cheap gym wear — B-FIT is the real deal.',
+        product: 'B-FIT Women Elite Track Suit',
+        avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80',
+    },
+    {
+        id: 5,
+        name: 'Vikram Singh',
+        location: 'Chandigarh',
+        rating: 5,
+        text: 'The Stainless Steel Water Bottle keeps my drinks cold for over 24 hours — tested it during a full training day. The build quality feels premium and the matte black finish looks incredible.',
+        product: 'B-FIT Stainless Steel Water Bottle',
+        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80',
+    },
+    {
+        id: 6,
+        name: 'Kavya Reddy',
+        location: 'Hyderabad',
+        rating: 5,
+        text: 'I\'ve been wearing B-FIT gear for six months and the durability is remarkable. The Women Core Performance Tee still maintains its shape and colour perfectly after many washes. Brilliant quality.',
+        product: 'B-FIT Women Core Performance Tee',
+        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80',
+    },
+]
+
+export default testimonials
