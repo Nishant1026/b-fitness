@@ -5,7 +5,7 @@
     <MobileMenu />
     <CartDrawer />
 
-    <main class="pt-16">
+    <main>
       <HeroSlider />
       <TrustBadges />
       <CategorySection />

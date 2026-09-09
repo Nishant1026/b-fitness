@@ -238,7 +238,7 @@ const slides = [
     cta1Link: '/shop/sports-clothing',
     cta2: 'Shop Women',
     cta2Link: '/shop/sports-clothing',
-    image: 'https://images.unsplash.com/photo-1534438327-3d159c1dcdd3?w=1800&q=90',
+    image: '/hero1.png',
     alt: 'Athlete training in B-FIT athletic wear',
   },
   {
@@ -251,7 +251,7 @@ const slides = [
     cta1Link: '/shop/performance-bottomwear',
     cta2: 'View Active Sale',
     cta2Link: '/offers',
-    image: 'https://images.unsplash.com/photo-1571019613445-01f75c7c1b87?w=1800&q=90',
+    image: '/hero2.png',
     alt: 'Performance bottomwear for intensive training',
   },
   {
@@ -264,7 +264,7 @@ const slides = [
     cta1Link: '/shop/gym-accessories',
     cta2: 'View Supplements',
     cta2Link: '/shop/sports-supplements',
-    image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=1800&q=90',
+    image: '/hero3.png',
     alt: 'Premium gym accessories and equipment',
   },
 ]
