@@ -6,7 +6,7 @@
         <div class="relative reveal-left">
           <div class="relative z-10 rounded-2xl overflow-hidden shadow-card-hover" style="aspect-ratio: 4/5;">
             <img
-              src="https://images.unsplash.com/photo-1534438327-3d159c1dcdd3?w=800&q=85"
+              src="https://plus.unsplash.com/premium_photo-1683147614938-d27250357e2c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Z3ltJTIwZml0bmVzcyUyMGNsb3RoZXN8ZW58MHx8MHx8fDA%3D"
               alt="Athletes training in B-FIT wear"
               class="w-full h-full object-cover"
               loading="lazy"
