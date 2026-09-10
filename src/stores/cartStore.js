@@ -10,18 +10,49 @@ export const useCartStore = defineStore('cart', () => {
     )
 
     const subtotal = computed(() =>
-        items.value.reduce((sum, i) => sum + (i.salePrice || i.price) * i.quantity, 0)
+        items.value.reduce((sum, i) => sum + (i.price || i.salePrice) * i.quantity, 0)
     )
 
-    const total = computed(() => subtotal.value)
+    const originalSubtotal = computed(() =>
+        items.value.reduce((sum, i) => sum + (i.originalPrice || i.price || i.salePrice) * i.quantity, 0)
+    )
 
-    function addItem(product, { size, color, quantity = 1 } = {}) {
-        const key = `${product.id}-${size}-${color}`
+    const totalDiscount = computed(() =>
+        Math.max(0, originalSubtotal.value - subtotal.value)
+    )
+
+    const shipping = computed(() =>
+        subtotal.value >= 999 || items.value.length === 0 ? 0 : 99
+    )
+
+    const total = computed(() =>
+        subtotal.value + shipping.value
+    )
+
+    function addItem(product, { size = '', color = '', quantity = 1 } = {}) {
+        const itemSize = size || ''
+        const itemColor = color || ''
+        const key = `${product.id}-${itemSize}-${itemColor}`
         const existing = items.value.find(i => i.key === key)
         if (existing) {
             existing.quantity += quantity
         } else {
-            items.value.push({ ...product, key, size, color, quantity })
+            items.value.push({
+                id: product.id,
+                name: product.name,
+                slug: product.slug,
+                category: product.category,
+                subcategory: product.subcategory,
+                categoryName: product.categoryName,
+                price: product.price || product.salePrice,
+                originalPrice: product.originalPrice || product.price,
+                thumbnail: product.thumbnail || product.images?.[0],
+                sku: product.sku,
+                key,
+                size: itemSize,
+                color: itemColor,
+                quantity
+            })
         }
         saveToStorage()
         isOpen.value = true
@@ -67,7 +98,7 @@ export const useCartStore = defineStore('cart', () => {
     }
 
     return {
-        items, isOpen, totalItems, subtotal, total,
+        items, isOpen, totalItems, subtotal, originalSubtotal, totalDiscount, shipping, total,
         addItem, removeItem, updateQuantity, clearCart,
         openCart, closeCart, toggleCart, loadFromStorage
     }

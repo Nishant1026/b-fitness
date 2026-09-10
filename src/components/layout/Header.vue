@@ -88,12 +88,12 @@
             Men <ChevronDown :size="15" class="transition-transform duration-300 group-hover/men:rotate-180" />
           </button>
           <div class="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white border border-neutral-200/90 rounded-2xl shadow-xl p-2 opacity-0 pointer-events-none group-hover/men:opacity-100 group-hover/men:pointer-events-auto transition-all duration-300 translate-y-2 group-hover/men:translate-y-0 z-50">
-            <RouterLink to="/shop/sports-clothing" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">T-Shirts</RouterLink>
-            <RouterLink to="/shop/sports-clothing" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Vests &amp; Stringers</RouterLink>
-            <RouterLink to="/shop/sports-clothing" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Track Suits</RouterLink>
-            <RouterLink to="/shop/performance-bottomwear" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Track Pants &amp; Shorts</RouterLink>
+            <RouterLink to="/shop/men/t-shirts" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">T-Shirts</RouterLink>
+            <RouterLink to="/shop/men/vests-stringers" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Vests &amp; Stringers</RouterLink>
+            <RouterLink to="/shop/men/track-suits" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Track Suits</RouterLink>
+            <RouterLink to="/shop/men/track-pants-shorts" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Track Pants &amp; Shorts</RouterLink>
             <div class="my-1.5 border-t border-neutral-100"></div>
-            <RouterLink to="/shop/sports-clothing" class="block px-3.5 py-2 text-xs text-neutral-900 font-bold hover:translate-x-1 transition-transform">View All Men's →</RouterLink>
+            <RouterLink to="/shop/men" class="block px-3.5 py-2 text-xs text-neutral-900 font-bold hover:translate-x-1 transition-transform">View All Men's →</RouterLink>
           </div>
         </div>
 
@@ -103,26 +103,47 @@
             Women <ChevronDown :size="15" class="transition-transform duration-300 group-hover/women:rotate-180" />
           </button>
           <div class="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white border border-neutral-200/90 rounded-2xl shadow-xl p-2 opacity-0 pointer-events-none group-hover/women:opacity-100 group-hover/women:pointer-events-auto transition-all duration-300 translate-y-2 group-hover/women:translate-y-0 z-50">
-            <RouterLink to="/shop/sports-clothing" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Performance Tees</RouterLink>
-            <RouterLink to="/shop/sports-clothing" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Track Suits</RouterLink>
-            <RouterLink to="/shop/performance-bottomwear" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Bottoms &amp; Leggings</RouterLink>
+            <RouterLink to="/shop/women/t-shirts" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">T-Shirts</RouterLink>
+            <RouterLink to="/shop/women/sports-bras" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Sports Bras</RouterLink>
+            <RouterLink to="/shop/women/leggings" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Leggings</RouterLink>
+            <RouterLink to="/shop/women/track-pants" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Track Pants</RouterLink>
             <div class="my-1.5 border-t border-neutral-100"></div>
-            <RouterLink to="/shop/sports-clothing" class="block px-3.5 py-2 text-xs text-neutral-900 font-bold hover:translate-x-1 transition-transform">View All Women's →</RouterLink>
+            <RouterLink to="/shop/women" class="block px-3.5 py-2 text-xs text-neutral-900 font-bold hover:translate-x-1 transition-transform">View All Women's →</RouterLink>
           </div>
         </div>
 
-        <RouterLink to="/shop/gym-accessories" class="relative py-2 text-xs uppercase tracking-widest font-bold text-neutral-800 hover:text-neutral-900 transition-colors group">
-          Accessories
-          <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-neutral-900 transition-all duration-300 group-hover:w-full"></span>
-        </RouterLink>
+        <!-- Accessories Dropdown -->
+        <div class="relative group/acc py-2">
+          <button type="button" class="flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-neutral-800 group-hover/acc:text-neutral-900 transition-colors">
+            Accessories <ChevronDown :size="15" class="transition-transform duration-300 group-hover/acc:rotate-180" />
+          </button>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white border border-neutral-200/90 rounded-2xl shadow-xl p-2 opacity-0 pointer-events-none group-hover/acc:opacity-100 group-hover/acc:pointer-events-auto transition-all duration-300 translate-y-2 group-hover/acc:translate-y-0 z-50">
+            <RouterLink to="/shop/accessories/gym-bags" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Gym Bags</RouterLink>
+            <RouterLink to="/shop/accessories/caps" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Caps</RouterLink>
+            <RouterLink to="/shop/accessories/bottles" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Bottles</RouterLink>
+            <RouterLink to="/shop/accessories/gym-gloves" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Gym Gloves</RouterLink>
+            <div class="my-1.5 border-t border-neutral-100"></div>
+            <RouterLink to="/shop/accessories" class="block px-3.5 py-2 text-xs text-neutral-900 font-bold hover:translate-x-1 transition-transform">View All Accessories →</RouterLink>
+          </div>
+        </div>
 
-        <RouterLink to="/shop/sports-supplements" class="relative py-2 text-xs uppercase tracking-widest font-bold text-neutral-800 hover:text-neutral-900 transition-colors group">
-          Supplements
-          <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-neutral-900 transition-all duration-300 group-hover:w-full"></span>
-        </RouterLink>
+        <!-- Supplements Dropdown -->
+        <div class="relative group/sup py-2">
+          <button type="button" class="flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-neutral-800 group-hover/sup:text-neutral-900 transition-colors">
+            Supplements <ChevronDown :size="15" class="transition-transform duration-300 group-hover/sup:rotate-180" />
+          </button>
+          <div class="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white border border-neutral-200/90 rounded-2xl shadow-xl p-2 opacity-0 pointer-events-none group-hover/sup:opacity-100 group-hover/sup:pointer-events-auto transition-all duration-300 translate-y-2 group-hover/sup:translate-y-0 z-50">
+            <RouterLink to="/shop/supplements/protein" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Protein</RouterLink>
+            <RouterLink to="/shop/supplements/pre-workout" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Pre Workout</RouterLink>
+            <RouterLink to="/shop/supplements/recovery" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Recovery</RouterLink>
+            <RouterLink to="/shop/supplements/vitamins" class="block px-3.5 py-2.5 text-xs font-semibold text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 rounded-xl transition-all">Vitamins</RouterLink>
+            <div class="my-1.5 border-t border-neutral-100"></div>
+            <RouterLink to="/shop/supplements" class="block px-3.5 py-2 text-xs text-neutral-900 font-bold hover:translate-x-1 transition-transform">View All Supplements →</RouterLink>
+          </div>
+        </div>
 
         <!-- Sale button -->
-        <RouterLink to="/offers" class="px-3.5 py-1 bg-red-50 text-red-600 border border-red-200/60 text-xs uppercase tracking-widest font-black rounded-full hover:bg-red-100 transition-colors">
+        <RouterLink to="/shop/sale" class="px-3.5 py-1 bg-red-50 text-red-600 border border-red-200/60 text-xs uppercase tracking-widest font-black rounded-full hover:bg-red-100 transition-colors">
           Sale
         </RouterLink>
       </nav>
@@ -239,9 +260,9 @@
               <img :src="p.thumbnail" :alt="p.name" class="w-12 h-12 object-cover rounded-xl shadow-sm" loading="lazy" />
               <div>
                 <div class="text-neutral-900 font-bold text-sm group-hover:text-red-600 transition-colors">{{ p.name }}</div>
-                <div class="text-neutral-400 text-xs uppercase tracking-wider">{{ p.subCategory }}</div>
+                <div class="text-neutral-400 text-xs uppercase tracking-wider">{{ p.categoryName || p.subcategory || p.subCategory }}</div>
               </div>
-              <div class="ml-auto text-neutral-900 font-black text-sm">Rs. {{ (p.salePrice || p.price).toLocaleString() }}</div>
+              <div class="ml-auto text-neutral-900 font-black text-sm">Rs. {{ (p.price || p.salePrice).toLocaleString() }}</div>
             </RouterLink>
           </div>
           <p v-else-if="overlaySearch.length > 1" class="text-neutral-400 text-center mt-12 text-sm font-medium">No products found matching "{{ overlaySearch }}"</p>
@@ -254,12 +275,14 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
 import { Search, Heart, ShoppingBag, User, Menu, X, ChevronDown, Phone, Mail, Truck, MapPin } from 'lucide-vue-next'
 import { useCartStore } from '../../stores/cartStore.js'
 import { useWishlistStore } from '../../stores/wishlistStore.js'
 import { useUiStore } from '../../stores/uiStore.js'
 import { useProductStore } from '../../stores/productStore.js'
 
+const router = useRouter()
 const cartStore = useCartStore()
 const wishlistStore = useWishlistStore()
 const uiStore = useUiStore()
@@ -270,17 +293,19 @@ const searchFocused = ref(false)
 
 const searchResults = computed(() => {
   if (!searchQuery.value.trim() || searchQuery.value.length < 2) return []
-  const q = searchQuery.value.toLowerCase()
+  const q = searchQuery.value.toLowerCase().trim()
   return productStore.allProducts.filter(p =>
     p.name.toLowerCase().includes(q) ||
     p.category.toLowerCase().includes(q) ||
-    p.subCategory.toLowerCase().includes(q)
+    (p.subcategory && p.subcategory.toLowerCase().includes(q)) ||
+    (p.categoryName && p.categoryName.toLowerCase().includes(q))
   )
 })
 
 function doSearch() {
   if (searchQuery.value.trim()) {
     productStore.searchQuery = searchQuery.value
+    router.push('/shop')
     searchQuery.value = ''
     searchFocused.value = false
   }
@@ -289,12 +314,13 @@ function doSearch() {
 const overlaySearch = ref('')
 const overlayResults = computed(() => {
   if (!overlaySearch.value.trim() || overlaySearch.value.length < 2) return []
-  const q = overlaySearch.value.toLowerCase()
+  const q = overlaySearch.value.toLowerCase().trim()
   return productStore.allProducts.filter(p =>
     p.name.toLowerCase().includes(q) ||
     p.category.toLowerCase().includes(q) ||
-    p.subCategory.toLowerCase().includes(q) ||
-    p.sku.toLowerCase().includes(q)
+    (p.subcategory && p.subcategory.toLowerCase().includes(q)) ||
+    (p.categoryName && p.categoryName.toLowerCase().includes(q)) ||
+    (p.sku && p.sku.toLowerCase().includes(q))
   )
 })
 
@@ -302,6 +328,7 @@ function doOverlaySearch() {
   if (overlaySearch.value.trim()) {
     productStore.searchQuery = overlaySearch.value
     uiStore.closeSearch()
+    router.push('/shop')
     overlaySearch.value = ''
   }
 }

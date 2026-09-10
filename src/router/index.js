@@ -20,6 +20,12 @@ const routes = [
         meta: { title: 'Shop — B-FIT Sports & Supplements' }
     },
     {
+        path: '/shop/:category/:subcategory',
+        name: 'ShopSubcategory',
+        component: () => import('../views/ShopView.vue'),
+        meta: { title: 'Shop — B-FIT Sports & Supplements' }
+    },
+    {
         path: '/product/:slug',
         name: 'ProductDetail',
         component: () => import('../views/ProductDetailView.vue'),

@@ -6,7 +6,7 @@
     <CartDrawer />
 
     <!-- Header spacer -->
-    <div class="h-16"></div>
+    <div class="h-16 md:h-25"></div>
 
     <!-- Page Banner + Breadcrumb -->
     <div class="bg-brand-surface border-b border-brand-border py-6 md:py-8">
@@ -24,11 +24,11 @@
             <label class="text-brand-muted text-sm flex-shrink-0">Sort:</label>
             <select v-model="productStore.sortBy" class="input-premium text-sm py-2 px-3 pr-8 min-w-[180px]">
               <option value="featured">Default Sorting</option>
-              <option value="newest">Newest</option>
               <option value="price-low">Price: Low to High</option>
               <option value="price-high">Price: High to Low</option>
-              <option value="rating">Top Rated</option>
-              <option value="sale">Biggest Discount</option>
+              <option value="newest">Newest</option>
+              <option value="rating">Rating</option>
+              <option value="popularity">Popularity</option>
             </select>
           </div>
         </div>
@@ -57,14 +57,15 @@
             </button>
             <select v-model="productStore.sortBy" class="flex-1 input-premium text-sm py-2 px-3">
               <option value="featured">Default Sorting</option>
-              <option value="newest">Newest</option>
               <option value="price-low">Price: Low to High</option>
               <option value="price-high">Price: High to Low</option>
-              <option value="rating">Top Rated</option>
+              <option value="newest">Newest</option>
+              <option value="rating">Rating</option>
+              <option value="popularity">Popularity</option>
             </select>
           </div>
 
-          <!-- Grid -->
+          <!-- Product Grid (Strictly 2 columns on mobile) -->
           <ProductGrid :products="productStore.filteredProducts" columns="3" />
         </div>
       </div>
@@ -73,19 +74,19 @@
     <!-- Mobile Filter Drawer -->
     <Teleport to="body">
       <div v-if="mobileFiltersOpen" class="drawer-overlay open" @click="mobileFiltersOpen = false"></div>
-      <div class="fixed inset-y-0 left-0 z-50 w-72 bg-brand-charcoal border-r border-white/[0.06] transform transition-transform duration-400 ease-premium overflow-y-auto"
+      <div class="fixed inset-y-0 left-0 z-50 w-80 max-w-[85vw] bg-white border-r border-brand-border transform transition-transform duration-300 ease-premium overflow-y-auto shadow-2xl"
         :class="mobileFiltersOpen ? 'translate-x-0' : '-translate-x-full'"
       >
-        <div class="flex items-center justify-between px-5 py-4 border-b border-white/[0.06] sticky top-0 bg-brand-charcoal z-10">
-          <h3 class="text-brand-white font-bold text-base">Filters</h3>
-          <button @click="mobileFiltersOpen = false" class="text-brand-silver hover:text-brand-white transition-colors" aria-label="Close filters">
+        <div class="flex items-center justify-between px-5 py-4 border-b border-brand-border sticky top-0 bg-white z-10">
+          <h3 class="text-brand-text font-bold text-base">Filters</h3>
+          <button @click="mobileFiltersOpen = false" class="text-brand-muted hover:text-brand-text transition-colors p-1 rounded-lg" aria-label="Close filters">
             <X :size="20" />
           </button>
         </div>
         <div class="p-5">
           <ProductFilters />
         </div>
-        <div class="sticky bottom-0 p-4 bg-brand-charcoal border-t border-white/[0.06]">
+        <div class="sticky bottom-0 p-4 bg-white border-t border-brand-border">
           <button @click="mobileFiltersOpen = false" class="btn-primary w-full justify-center">
             Apply ({{ productStore.filteredProducts.length }} products)
           </button>
@@ -98,7 +99,7 @@
     <!-- Toast -->
     <Teleport to="body">
       <Transition name="toast">
-        <div v-if="uiStore.notification" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] px-5 py-3 rounded bg-brand-charcoal border border-white/10 text-brand-white text-sm font-medium shadow-card flex items-center gap-2.5 whitespace-nowrap">
+        <div v-if="uiStore.notification" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] px-5 py-3 rounded-xl bg-brand-dark text-white text-sm font-medium shadow-card flex items-center gap-2.5 whitespace-nowrap">
           <CheckCircle :size="15" class="text-green-400 flex-shrink-0" />
           {{ uiStore.notification.message }}
         </div>
@@ -130,27 +131,77 @@ const uiStore = useUiStore()
 const { refresh } = useScrollReveal()
 const mobileFiltersOpen = ref(false)
 
-const categorySlug = computed(() => route.params.category || '')
+const subcategoryMap = {
+  't-shirts': 'T-Shirts',
+  'vests-stringers': 'Vests & Stringers',
+  'track-suits': 'Track Suits',
+  'track-pants-shorts': 'Track Pants & Shorts',
+  'track-pants': 'Track Pants',
+  'sports-bras': 'Sports Bras',
+  'leggings': 'Leggings',
+  'shorts': 'Shorts',
+  'hoodies': 'Hoodies',
+  'sweatshirts': 'Sweatshirts',
+  'jackets': 'Jackets',
+  'gym-bags': 'Gym Bags',
+  'caps': 'Caps',
+  'socks': 'Socks',
+  'gym-gloves': 'Gym Gloves',
+  'belts': 'Belts',
+  'bottles': 'Bottles',
+  'towels': 'Towels',
+  'protein': 'Protein',
+  'pre-workout': 'Pre Workout',
+  'recovery': 'Recovery',
+  'vitamins': 'Vitamins',
+  'performance': 'Performance'
+}
+
+function formatSubcategory(slug) {
+  if (!slug) return ''
+  if (subcategoryMap[slug]) return subcategoryMap[slug]
+  return slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+}
+
+const categorySlug = computed(() => (route.params.category || '').toLowerCase())
+const subcategorySlug = computed(() => (route.params.subcategory || '').toLowerCase())
+
+const categoryName = computed(() => {
+  if (!categorySlug.value) return 'All Products'
+  if (categorySlug.value === 'men') return "Men's Collection"
+  if (categorySlug.value === 'women') return "Women's Collection"
+  if (categorySlug.value === 'accessories') return 'Gym Accessories'
+  if (categorySlug.value === 'supplements') return 'Sports Supplements'
+  if (categorySlug.value === 'sale') return 'Sale & Special Offers'
+
+  const found = categories.find(c => c.slug === categorySlug.value)
+  return found ? found.name : categorySlug.value.charAt(0).toUpperCase() + categorySlug.value.slice(1)
+})
 
 const pageTitle = computed(() => {
-  if (!categorySlug.value) return 'All Products'
-  const found = categories.find(c => c.slug === categorySlug.value)
-  return found ? found.name : 'All Products'
+  if (subcategorySlug.value) {
+    const formatted = formatSubcategory(subcategorySlug.value)
+    if (categorySlug.value === 'men') return `Men's ${formatted}`
+    if (categorySlug.value === 'women') return `Women's ${formatted}`
+    return formatted
+  }
+  return categoryName.value
 })
 
 const breadcrumbs = computed(() => {
   const arr = [{ label: 'Shop', to: '/shop' }]
-  if (categorySlug.value) arr.push({ label: pageTitle.value })
+  if (categorySlug.value && subcategorySlug.value) {
+    arr.push({ label: categoryName.value, to: `/shop/${categorySlug.value}` })
+    arr.push({ label: formatSubcategory(subcategorySlug.value) })
+  } else if (categorySlug.value) {
+    arr.push({ label: categoryName.value })
+  }
   return arr
 })
 
-watch(() => route.params.category, (cat) => {
-  if (cat) {
-    const found = categories.find(c => c.slug === cat)
-    productStore.activeCategory = found ? found.name : ''
-  } else {
-    productStore.activeCategory = ''
-  }
+watch([() => route.params.category, () => route.params.subcategory], ([cat, sub]) => {
+  productStore.activeCategory = cat ? cat.toLowerCase() : ''
+  productStore.activeSubCategory = sub ? sub.toLowerCase() : ''
   setTimeout(refresh, 300)
 }, { immediate: true })
 

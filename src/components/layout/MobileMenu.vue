@@ -44,11 +44,11 @@
             <ChevronDown :size="15" class="text-brand-muted transition-transform duration-200" :class="menOpen ? 'rotate-180' : ''" />
           </button>
           <div v-if="menOpen" class="ml-7 mt-1 space-y-0.5 border-l-2 border-brand-border pl-4">
-            <RouterLink to="/shop/sports-clothing" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">T-Shirts</RouterLink>
-            <RouterLink to="/shop/sports-clothing" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Vests &amp; Stringers</RouterLink>
-            <RouterLink to="/shop/sports-clothing" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Track Suits</RouterLink>
-            <RouterLink to="/shop/performance-bottomwear" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Track Pants</RouterLink>
-            <RouterLink to="/shop/performance-bottomwear" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Shorts</RouterLink>
+            <RouterLink to="/shop/men/t-shirts" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">T-Shirts</RouterLink>
+            <RouterLink to="/shop/men/vests-stringers" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Vests &amp; Stringers</RouterLink>
+            <RouterLink to="/shop/men/track-suits" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Track Suits</RouterLink>
+            <RouterLink to="/shop/men/track-pants-shorts" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Track Pants &amp; Shorts</RouterLink>
+            <RouterLink to="/shop/men" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-text font-bold hover:text-brand-red transition-colors">View All Men's →</RouterLink>
           </div>
         </div>
 
@@ -62,23 +62,51 @@
             <ChevronDown :size="15" class="text-brand-muted transition-transform duration-200" :class="womenOpen ? 'rotate-180' : ''" />
           </button>
           <div v-if="womenOpen" class="ml-7 mt-1 space-y-0.5 border-l-2 border-brand-border pl-4">
-            <RouterLink to="/shop/sports-clothing" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Performance Tees</RouterLink>
-            <RouterLink to="/shop/sports-clothing" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Track Suits</RouterLink>
-            <RouterLink to="/shop/performance-bottomwear" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Track Pants &amp; Shorts</RouterLink>
+            <RouterLink to="/shop/women/t-shirts" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">T-Shirts</RouterLink>
+            <RouterLink to="/shop/women/sports-bras" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Sports Bras</RouterLink>
+            <RouterLink to="/shop/women/leggings" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Leggings</RouterLink>
+            <RouterLink to="/shop/women/track-pants" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Track Pants</RouterLink>
+            <RouterLink to="/shop/women" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-text font-bold hover:text-brand-red transition-colors">View All Women's →</RouterLink>
           </div>
         </div>
 
-        <RouterLink to="/shop/gym-accessories" @click="uiStore.closeMobileMenu()" class="flex items-center gap-3 px-4 py-3 rounded-xl text-brand-body font-medium hover:bg-brand-surface hover:text-brand-red transition-all">
-          <Package :size="16" class="text-brand-muted" />
-          Accessories
-        </RouterLink>
+        <!-- Accessories accordion -->
+        <div>
+          <button @click="accOpen = !accOpen" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-brand-body font-medium hover:bg-brand-surface hover:text-brand-red transition-all">
+            <div class="flex items-center gap-3">
+              <Package :size="16" class="text-brand-muted" />
+              Accessories
+            </div>
+            <ChevronDown :size="15" class="text-brand-muted transition-transform duration-200" :class="accOpen ? 'rotate-180' : ''" />
+          </button>
+          <div v-if="accOpen" class="ml-7 mt-1 space-y-0.5 border-l-2 border-brand-border pl-4">
+            <RouterLink to="/shop/accessories/gym-bags" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Gym Bags</RouterLink>
+            <RouterLink to="/shop/accessories/caps" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Caps</RouterLink>
+            <RouterLink to="/shop/accessories/bottles" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Bottles</RouterLink>
+            <RouterLink to="/shop/accessories/gym-gloves" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Gym Gloves</RouterLink>
+            <RouterLink to="/shop/accessories" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-text font-bold hover:text-brand-red transition-colors">View All Accessories →</RouterLink>
+          </div>
+        </div>
 
-        <RouterLink to="/shop/sports-supplements" @click="uiStore.closeMobileMenu()" class="flex items-center gap-3 px-4 py-3 rounded-xl text-brand-body font-medium hover:bg-brand-surface hover:text-brand-red transition-all">
-          <Zap :size="16" class="text-brand-muted" />
-          Supplements
-        </RouterLink>
+        <!-- Supplements accordion -->
+        <div>
+          <button @click="supOpen = !supOpen" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-brand-body font-medium hover:bg-brand-surface hover:text-brand-red transition-all">
+            <div class="flex items-center gap-3">
+              <Zap :size="16" class="text-brand-muted" />
+              Supplements
+            </div>
+            <ChevronDown :size="15" class="text-brand-muted transition-transform duration-200" :class="supOpen ? 'rotate-180' : ''" />
+          </button>
+          <div v-if="supOpen" class="ml-7 mt-1 space-y-0.5 border-l-2 border-brand-border pl-4">
+            <RouterLink to="/shop/supplements/protein" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Protein</RouterLink>
+            <RouterLink to="/shop/supplements/pre-workout" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Pre Workout</RouterLink>
+            <RouterLink to="/shop/supplements/recovery" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Recovery</RouterLink>
+            <RouterLink to="/shop/supplements/vitamins" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-muted hover:text-brand-red transition-colors">Vitamins</RouterLink>
+            <RouterLink to="/shop/supplements" @click="uiStore.closeMobileMenu()" class="block py-2 text-sm text-brand-text font-bold hover:text-brand-red transition-colors">View All Supplements →</RouterLink>
+          </div>
+        </div>
 
-        <RouterLink to="/offers" @click="uiStore.closeMobileMenu()" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-brand-red/8 text-brand-red font-bold transition-all hover:bg-brand-red/15">
+        <RouterLink to="/shop/sale" @click="uiStore.closeMobileMenu()" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-brand-red/8 text-brand-red font-bold transition-all hover:bg-brand-red/15">
           <Tag :size="16" />
           Sale 🔥
         </RouterLink>
@@ -126,6 +154,8 @@ const wishlistStore = useWishlistStore()
 
 const menOpen = ref(false)
 const womenOpen = ref(false)
+const accOpen = ref(false)
+const supOpen = ref(false)
 </script>
 
 <style scoped>
